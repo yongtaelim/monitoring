@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: local
+
+
+--- # local
+spring:
+  config:
+    activate:
+      on-profile: local
+
+management:
+  server:
+    port: 8081
+    address: 127.0.0.1
+  endpoint:
+#    shutdown:
+#      enabled: true
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    health:
+      enabled: true
+    prometheus:
+      enabled: true
+
+  endpoints:
+    enabled-by-default: false
+#    jmx:
+#      exposure:
+#        include: "*"
+    web:
+      exposure:
+        include: metrics, info, health, prometheus
